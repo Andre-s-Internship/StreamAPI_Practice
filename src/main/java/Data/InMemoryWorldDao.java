@@ -1,6 +1,6 @@
-import java.util.ArrayList;
+package Data;
+
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,6 +13,16 @@ public class InMemoryWorldDao {
 	private Map<String, Country> countries;
 	private Map<Integer, City> cities;
 	private Set<String> continents;
+
+	public Map<String, Country> getCountries() {
+		return countries;
+	}
+	public Map<Integer, City> getCities() {
+		return cities;
+	}
+	public Set<String> getContinents() {
+		return continents;
+	}
 
 	public void createCities1() {
 		cities.put(1, new City(1, "Kabul", "AFG", 1780000));

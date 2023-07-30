@@ -1,4 +1,5 @@
-import com.example.model.CriteriaBean;
+package Data;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -6,14 +7,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 
+ *
  * @author Binnur Kurt (binnur.kurt@gmail.com)
  */
 public class InMemoryMovieService {
 
-    private Map<Integer, Movie> movies;
-    private Map<Integer, Genre> genres;
-    private Map<Integer, Director> directors;
+    private Map<Integer, Data.Movie> movies;
+    private Map<Integer, Data.Genre> genres;
+    private Map<Integer, Data.Director> directors;
 
     private InMemoryMovieService() {
         movies = new ConcurrentHashMap<>();
@@ -22,327 +23,349 @@ public class InMemoryMovieService {
         populate();
     }
 
+    public Map<Integer, Movie> getMovies() {
+        return movies;
+    }
+
+    public Map<Integer, Genre> getGenres() {
+        return genres;
+    }
+
+    public Map<Integer, Director> getDirectors() {
+        return directors;
+    }
+
+    private static InMemoryMovieService instance;
+
+    public static InMemoryMovieService getInstance() {
+        synchronized (InMemoryWorldDao.class) {
+            if (instance == null)
+                instance = new InMemoryMovieService();
+        }
+        return instance;
+    }
+
     public void populate() {
-        movies.put(1, new Movie(1, "500 Days Of Summer", 2009, "tt1022603"));
-        movies.put(2, new Movie(2, "Beyond a Reasonable Doubt", 2009,
+        movies.put(1, new Data.Movie(1, "500 Days Of Summer", 2009, "tt1022603"));
+        movies.put(2, new Data.Movie(2, "Beyond a Reasonable Doubt", 2009,
                 "tt1183251"));
-        movies.put(3, new Movie(3, "Gamer", 2009, "tt1034032"));
-        movies.put(4, new Movie(4, "Cheri", 2009, "tt1179258"));
-        movies.put(5, new Movie(5, "Dorian Gray", 2009, "tt1235124"));
-        movies.put(6, new Movie(6, "Inglourious Basterds", 2009, "tt0361748"));
-        movies.put(7, new Movie(7, "Invictus", 2009, "tt1057500"));
-        movies.put(8, new Movie(8, "Julie and Julia", 2009, "tt1135503"));
-        movies.put(9, new Movie(9, "Los abrazos rotos", 2009, "tt0913425"));
-        movies.put(10, new Movie(10, "Of Mice and Men", 1992, "tt0105046"));
-        movies.put(11, new Movie(11, "Armored", 2009, "tt0913354"));
-        movies.put(12, new Movie(12, "Bornova Bornova", 2009, "tt1548542"));
-        movies.put(13, new Movie(13, "Coco avant Chanel", 2009, "tt1035736"));
+        movies.put(3, new Data.Movie(3, "Gamer", 2009, "tt1034032"));
+        movies.put(4, new Data.Movie(4, "Cheri", 2009, "tt1179258"));
+        movies.put(5, new Data.Movie(5, "Dorian Gray", 2009, "tt1235124"));
+        movies.put(6, new Data.Movie(6, "Inglourious Basterds", 2009, "tt0361748"));
+        movies.put(7, new Data.Movie(7, "Invictus", 2009, "tt1057500"));
+        movies.put(8, new Data.Movie(8, "Julie and Julia", 2009, "tt1135503"));
+        movies.put(9, new Data.Movie(9, "Los abrazos rotos", 2009, "tt0913425"));
+        movies.put(10, new Data.Movie(10, "Of Mice and Men", 1992, "tt0105046"));
+        movies.put(11, new Data.Movie(11, "Armored", 2009, "tt0913354"));
+        movies.put(12, new Data.Movie(12, "Bornova Bornova", 2009, "tt1548542"));
+        movies.put(13, new Data.Movie(13, "Coco avant Chanel", 2009, "tt1035736"));
         movies.put(14,
-                new Movie(14, "Nefes: Vatan sa?olsun", 2009, "tt1171701"));
-        movies.put(15, new Movie(15, "Up", 2009, "tt1049413"));
-        movies.put(16, new Movie(16, "Whiteout", 2009, "tt0365929"));
-        movies.put(17, new Movie(17, "The Time Travelers Wife", 2009,
+                new Data.Movie(14, "Nefes: Vatan sa?olsun", 2009, "tt1171701"));
+        movies.put(15, new Data.Movie(15, "Up", 2009, "tt1049413"));
+        movies.put(16, new Data.Movie(16, "Whiteout", 2009, "tt0365929"));
+        movies.put(17, new Data.Movie(17, "The Time Travelers Wife", 2009,
                 "tt0452694"));
-        movies.put(18, new Movie(18, "Whatever Works", 2009, "tt1178663"));
-        movies.put(19, new Movie(19, "Anonyma - Eine Frau in Berlin", 2009,
+        movies.put(18, new Data.Movie(18, "Whatever Works", 2009, "tt1178663"));
+        movies.put(19, new Data.Movie(19, "Anonyma - Eine Frau in Berlin", 2009,
                 "tt1035730"));
-        movies.put(20, new Movie(20, "Zombieland", 2009, "tt1156398"));
-        movies.put(21, new Movie(21, "Weather Girl", 2009, "tt1085515"));
-        movies.put(22, new Movie(22, "Watchmen", 2009, "tt0409459"));
-        movies.put(23, new Movie(23, "Adam Resurrected", 2008, "tt0479341"));
-        movies.put(24, new Movie(24, "Angels and Deamons", 2009, "tt0808151"));
-        movies.put(25, new Movie(25, "Away We Go", 2009, "tt1176740"));
-        movies.put(26, new Movie(26, "Last Ride", 2009, "tt1235142"));
-        movies.put(27, new Movie(27, "The Boys Are Back", 2009, "tt0926380"));
+        movies.put(20, new Data.Movie(20, "Zombieland", 2009, "tt1156398"));
+        movies.put(21, new Data.Movie(21, "Weather Girl", 2009, "tt1085515"));
+        movies.put(22, new Data.Movie(22, "Watchmen", 2009, "tt0409459"));
+        movies.put(23, new Data.Movie(23, "Adam Resurrected", 2008, "tt0479341"));
+        movies.put(24, new Data.Movie(24, "Angels and Deamons", 2009, "tt0808151"));
+        movies.put(25, new Data.Movie(25, "Away We Go", 2009, "tt1176740"));
+        movies.put(26, new Data.Movie(26, "Last Ride", 2009, "tt1235142"));
+        movies.put(27, new Data.Movie(27, "The Boys Are Back", 2009, "tt0926380"));
         movies.put(28,
-                new Movie(28, "Nothing But the Truth", 2008, "tt1073241"));
-        movies.put(29, new Movie(29, "100 Feet", 2008, "tt0899128"));
-        movies.put(30, new Movie(30, "The Tournament", 2009, "tt0471041"));
-        movies.put(31, new Movie(31, "Nordwand", 2008, "tt0844457"));
-        movies.put(32, new Movie(32, "A Serious Man", 2009, "tt1019452"));
-        movies.put(33, new Movie(33, "Saw VI", 2009, "tt1233227"));
-        movies.put(34, new Movie(34, "Ne te retourne pas", 2009, "tt1075113"));
-        movies.put(35, new Movie(35, "District 9", 2009, "tt1136608"));
-        movies.put(36, new Movie(36, "Extract", 2009, "tt1225822"));
+                new Data.Movie(28, "Nothing But the Truth", 2008, "tt1073241"));
+        movies.put(29, new Data.Movie(29, "100 Feet", 2008, "tt0899128"));
+        movies.put(30, new Data.Movie(30, "The Tournament", 2009, "tt0471041"));
+        movies.put(31, new Data.Movie(31, "Nordwand", 2008, "tt0844457"));
+        movies.put(32, new Data.Movie(32, "A Serious Man", 2009, "tt1019452"));
+        movies.put(33, new Data.Movie(33, "Saw VI", 2009, "tt1233227"));
+        movies.put(34, new Data.Movie(34, "Ne te retourne pas", 2009, "tt1075113"));
+        movies.put(35, new Data.Movie(35, "District 9", 2009, "tt1136608"));
+        movies.put(36, new Data.Movie(36, "Extract", 2009, "tt1225822"));
         movies.put(37,
-                new Movie(37, "Five Minutes of Haven", 2009, "tt1238291"));
-        movies.put(38, new Movie(38, "High Life", 2009, "tt1143110"));
-        movies.put(39, new Movie(39, "The Proposal", 2009, "tt1041829"));
-        movies.put(40, new Movie(40, "Veronika Decides to Die", 2009,
+                new Data.Movie(37, "Five Minutes of Haven", 2009, "tt1238291"));
+        movies.put(38, new Data.Movie(38, "High Life", 2009, "tt1143110"));
+        movies.put(39, new Data.Movie(39, "The Proposal", 2009, "tt1041829"));
+        movies.put(40, new Data.Movie(40, "Veronika Decides to Die", 2009,
                 "tt1068678"));
-        movies.put(41, new Movie(41, "The Other Man", 2008, "tt0974613"));
-        movies.put(42, new Movie(42, "The Goods: Live Hard, Sell Hard", 2009,
+        movies.put(41, new Data.Movie(41, "The Other Man", 2008, "tt0974613"));
+        movies.put(42, new Data.Movie(42, "The Goods: Live Hard, Sell Hard", 2009,
                 "tt1092633"));
-        movies.put(43, new Movie(43, "The Hangover", 2009, "tt1119646"));
-        movies.put(44, new Movie(44, "Public Enemies", 2009, "tt1152836"));
-        movies.put(45, new Movie(45, "Creation", 2009, "tt0974014"));
-        movies.put(46, new Movie(46, "Amelia", 2009, "tt1129445"));
-        movies.put(47, new Movie(47, "The Rebound", 2009, "tt1205535"));
-        movies.put(48, new Movie(48, "Powder Blue", 2009, "tt1032819"));
-        movies.put(49, new Movie(49, "The Men Who Stare at Goats", 2009,
+        movies.put(43, new Data.Movie(43, "The Hangover", 2009, "tt1119646"));
+        movies.put(44, new Data.Movie(44, "Public Enemies", 2009, "tt1152836"));
+        movies.put(45, new Data.Movie(45, "Creation", 2009, "tt0974014"));
+        movies.put(46, new Data.Movie(46, "Amelia", 2009, "tt1129445"));
+        movies.put(47, new Data.Movie(47, "The Rebound", 2009, "tt1205535"));
+        movies.put(48, new Data.Movie(48, "Powder Blue", 2009, "tt1032819"));
+        movies.put(49, new Data.Movie(49, "The Men Who Stare at Goats", 2009,
                 "tt1234548"));
-        movies.put(50, new Movie(50, "Bright Star", 2009, "tt0810784"));
-        movies.put(51, new Movie(51, "Case 39", 2009, "tt0795351"));
-        movies.put(52, new Movie(52, "Cold Souls", 2009, "tt1127877"));
-        movies.put(53, new Movie(53, "Moon", 2009, "tt1182345"));
-        movies.put(54, new Movie(54, "Worlds Greatest Dad", 2009, "tt1262981"));
-        movies.put(55, new Movie(55, "Paranormal Activity", 2007, "tt1179904"));
-        movies.put(56, new Movie(56, "State of Play", 2009, "tt0473705"));
-        movies.put(57, new Movie(57, "God on Trial", 2008, "tt1173494"));
-        movies.put(58, new Movie(58, "The Brothers Bloom", 2009, "tt0844286"));
-        movies.put(59, new Movie(59, "My One and Only", 2009, "tt1185431"));
-        movies.put(60, new Movie(60, "Mâ€žn Som Hatar Kvinnor", 2009,
+        movies.put(50, new Data.Movie(50, "Bright Star", 2009, "tt0810784"));
+        movies.put(51, new Data.Movie(51, "Case 39", 2009, "tt0795351"));
+        movies.put(52, new Data.Movie(52, "Cold Souls", 2009, "tt1127877"));
+        movies.put(53, new Data.Movie(53, "Moon", 2009, "tt1182345"));
+        movies.put(54, new Data.Movie(54, "Worlds Greatest Dad", 2009, "tt1262981"));
+        movies.put(55, new Data.Movie(55, "Paranormal Activity", 2007, "tt1179904"));
+        movies.put(56, new Data.Movie(56, "State of Play", 2009, "tt0473705"));
+        movies.put(57, new Data.Movie(57, "God on Trial", 2008, "tt1173494"));
+        movies.put(58, new Data.Movie(58, "The Brothers Bloom", 2009, "tt0844286"));
+        movies.put(59, new Data.Movie(59, "My One and Only", 2009, "tt1185431"));
+        movies.put(60, new Data.Movie(60, "Mâ€žn Som Hatar Kvinnor", 2009,
                 "tt1132620"));
-        movies.put(61, new Movie(61, "Mary and Max", 2009, "tt0978762"));
+        movies.put(61, new Data.Movie(61, "Mary and Max", 2009, "tt0978762"));
         movies.put(62,
-                new Movie(62, "The Limits of Control", 2009, "tt0978762"));
-        movies.put(63, new Movie(63, "Sunshine Cleaning", 2008, "tt0862846"));
-        movies.put(64, new Movie(64, "A Perfect Getaway", 2009, "tt0971209"));
-        movies.put(65, new Movie(65, "My Sisters Keeper", 2009, "tt1078588"));
-        movies.put(66, new Movie(66, "Oorlogswinter", 2008, "tt0795441"));
-        movies.put(67, new Movie(67, "Planet 51", 2009, "tt0762125"));
-        movies.put(68, new Movie(68, "Before the Rain", 1994, "tt0110882"));
-        movies.put(69, new Movie(69, "I Love You, Man", 2009, "tt1155056"));
-        movies.put(70, new Movie(70, "Rembetiko", 1983, "tt0086182"));
-        movies.put(71, new Movie(71, "Amelia", 2009, "tt1129445"));
-        movies.put(72, new Movie(72, "The Damned United", 2009, "tt1226271"));
-        movies.put(73, new Movie(73, "Hiroshima", 2005, "tt0475296"));
-        movies.put(74, new Movie(74, "New York, I Love You", 2009, "tt0808399"));
-        movies.put(75, new Movie(75, "Fish Tank", 2009, "tt1232776"));
-        movies.put(76, new Movie(76, "The Informant!", 2009, "tt1130080"));
-        movies.put(77, new Movie(77, "The Courageous Heart of Irena Sendler",
+                new Data.Movie(62, "The Limits of Control", 2009, "tt0978762"));
+        movies.put(63, new Data.Movie(63, "Sunshine Cleaning", 2008, "tt0862846"));
+        movies.put(64, new Data.Movie(64, "A Perfect Getaway", 2009, "tt0971209"));
+        movies.put(65, new Data.Movie(65, "My Sisters Keeper", 2009, "tt1078588"));
+        movies.put(66, new Data.Movie(66, "Oorlogswinter", 2008, "tt0795441"));
+        movies.put(67, new Data.Movie(67, "Planet 51", 2009, "tt0762125"));
+        movies.put(68, new Data.Movie(68, "Before the Rain", 1994, "tt0110882"));
+        movies.put(69, new Data.Movie(69, "I Love You, Man", 2009, "tt1155056"));
+        movies.put(70, new Data.Movie(70, "Rembetiko", 1983, "tt0086182"));
+        movies.put(71, new Data.Movie(71, "Amelia", 2009, "tt1129445"));
+        movies.put(72, new Data.Movie(72, "The Damned United", 2009, "tt1226271"));
+        movies.put(73, new Data.Movie(73, "Hiroshima", 2005, "tt0475296"));
+        movies.put(74, new Data.Movie(74, "New York, I Love You", 2009, "tt0808399"));
+        movies.put(75, new Data.Movie(75, "Fish Tank", 2009, "tt1232776"));
+        movies.put(76, new Data.Movie(76, "The Informant!", 2009, "tt1130080"));
+        movies.put(77, new Data.Movie(77, "The Courageous Heart of Irena Sendler",
                 2009, "tt1010278"));
-        movies.put(78, new Movie(78, "Storm", 2009, "tt0768239"));
-        movies.put(79, new Movie(79, "Before the Devil Knows You are Dead",
+        movies.put(78, new Data.Movie(78, "Storm", 2009, "tt0768239"));
+        movies.put(79, new Data.Movie(79, "Before the Devil Knows You are Dead",
                 2007, "tt0292963"));
-        movies.put(80, new Movie(80, "Triangle", 2009, "tt1187064"));
-        movies.put(81, new Movie(81, "The Great Escape", 1963, "tt0057115"));
-        movies.put(82, new Movie(82, "2012", 2009, "tt1190080"));
-        movies.put(83, new Movie(83, "The Cry of the Owl", 2009, "tt1034302"));
-        movies.put(84, new Movie(84, "13B", 2009, "tt1385824"));
-        movies.put(85, new Movie(85, "Double Indemnity", 1944, "tt0036775"));
-        movies.put(86, new Movie(86, "Butch Cassidy and the Sundance Kid",
+        movies.put(80, new Data.Movie(80, "Triangle", 2009, "tt1187064"));
+        movies.put(81, new Data.Movie(81, "The Great Escape", 1963, "tt0057115"));
+        movies.put(82, new Data.Movie(82, "2012", 2009, "tt1190080"));
+        movies.put(83, new Data.Movie(83, "The Cry of the Owl", 2009, "tt1034302"));
+        movies.put(84, new Data.Movie(84, "13B", 2009, "tt1385824"));
+        movies.put(85, new Data.Movie(85, "Double Indemnity", 1944, "tt0036775"));
+        movies.put(86, new Data.Movie(86, "Butch Cassidy and the Sundance Kid",
                 1969, "tt0064115"));
-        movies.put(87, new Movie(87, "El secreto de sus ojos", 2009,
+        movies.put(87, new Data.Movie(87, "El secreto de sus ojos", 2009,
                 "tt1305806"));
-        movies.put(88, new Movie(88, "Danton", 1983, "tt0083789"));
-        movies.put(89, new Movie(89, "Easy Rider", 1969, "tt0064276"));
-        movies.put(90, new Movie(90, "Surrogates", 2009, "tt0986263"));
-        movies.put(91, new Movie(91, "Dog Day Afternoon", 1975, "tt0072890"));
-        movies.put(92, new Movie(92, "A Streetcar Named Desire", 1951,
+        movies.put(88, new Data.Movie(88, "Danton", 1983, "tt0083789"));
+        movies.put(89, new Data.Movie(89, "Easy Rider", 1969, "tt0064276"));
+        movies.put(90, new Data.Movie(90, "Surrogates", 2009, "tt0986263"));
+        movies.put(91, new Data.Movie(91, "Dog Day Afternoon", 1975, "tt0072890"));
+        movies.put(92, new Data.Movie(92, "A Streetcar Named Desire", 1951,
                 "tt0044081"));
-        movies.put(93, new Movie(93, "Sunset Blvd.", 1950, "tt0043014"));
-        movies.put(94, new Movie(94, "Network", 1976, "tt0074958"));
-        movies.put(95, new Movie(95, "Vertigo", 1958, "tt0052357"));
-        movies.put(96, new Movie(96, "Bom yeoreum gaeul gyeoul geurigo bom",
+        movies.put(93, new Data.Movie(93, "Sunset Blvd.", 1950, "tt0043014"));
+        movies.put(94, new Data.Movie(94, "Network", 1976, "tt0074958"));
+        movies.put(95, new Data.Movie(95, "Vertigo", 1958, "tt0052357"));
+        movies.put(96, new Data.Movie(96, "Bom yeoreum gaeul gyeoul geurigo bom",
                 2003, "tt0374546"));
-        movies.put(97, new Movie(97, "Them!", 1954, "tt0047573"));
-        movies.put(98, new Movie(98, "Bin-jip", 2004, "tt0423866"));
-        movies.put(99, new Movie(99, "Nae meorisokui jiwoogae", 2004,
+        movies.put(97, new Data.Movie(97, "Them!", 1954, "tt0047573"));
+        movies.put(98, new Data.Movie(98, "Bin-jip", 2004, "tt0423866"));
+        movies.put(99, new Data.Movie(99, "Nae meorisokui jiwoogae", 2004,
                 "tt0428870"));
-        movies.put(100, new Movie(100, "Hwal", 2005, "tt0456470"));
-        movies.put(101, new Movie(101, "Kimssi pyoryugi", 2009, "tt1499666"));
-        movies.put(102, new Movie(102, "Uzak ?htimal", 2009, "tt1366981"));
-        movies.put(103, new Movie(103, "Daybreakers", 2009, "tt0433362"));
-        movies.put(104, new Movie(104, "Bin-mong", 2008, "tt1165253"));
-        movies.put(105, new Movie(105, "Oldboy", 2003, "tt0364569"));
-        movies.put(106, new Movie(106, "Cairo Time", 2009, "tt0896529"));
-        movies.put(107, new Movie(107, "Pazar - Bir Ticaret MasalÃ•", 2008,
+        movies.put(100, new Data.Movie(100, "Hwal", 2005, "tt0456470"));
+        movies.put(101, new Data.Movie(101, "Kimssi pyoryugi", 2009, "tt1499666"));
+        movies.put(102, new Data.Movie(102, "Uzak ?htimal", 2009, "tt1366981"));
+        movies.put(103, new Data.Movie(103, "Daybreakers", 2009, "tt0433362"));
+        movies.put(104, new Data.Movie(104, "Bin-mong", 2008, "tt1165253"));
+        movies.put(105, new Data.Movie(105, "Oldboy", 2003, "tt0364569"));
+        movies.put(106, new Data.Movie(106, "Cairo Time", 2009, "tt0896529"));
+        movies.put(107, new Data.Movie(107, "Pazar - Bir Ticaret MasalÃ•", 2008,
                 "tt1286165"));
-        movies.put(108, new Movie(108, "The Cove", 2009, "tt1313104"));
-        movies.put(109, new Movie(109, "Tenderness", 2009, "tt0494864"));
-        movies.put(110, new Movie(110, "Hachiko: A Dogs Story", 2009,
+        movies.put(108, new Data.Movie(108, "The Cove", 2009, "tt1313104"));
+        movies.put(109, new Data.Movie(109, "Tenderness", 2009, "tt0494864"));
+        movies.put(110, new Data.Movie(110, "Hachiko: A Dogs Story", 2009,
                 "tt1028532"));
-        movies.put(111, new Movie(111, "The Treasure of the Sierra Madre",
+        movies.put(111, new Data.Movie(111, "The Treasure of the Sierra Madre",
                 1948, "tt0040897"));
-        movies.put(112, new Movie(112, "Le magnifique", 1973, "tt0070354"));
-        movies.put(113, new Movie(113, "The Party", 1968, "tt0063415"));
-        movies.put(114, new Movie(114, "The Box", 2009, "tt0362478"));
-        movies.put(115, new Movie(115, "Everybodys Fine", 2009, "tt0780511"));
-        movies.put(116, new Movie(116, "Peter and Vandy", 2009, "tt1144551"));
-        movies.put(117, new Movie(117, "Psycho", 1960, "tt0054215"));
-        movies.put(118, new Movie(118, "Women in Trouble", 2009, "tt1247704"));
-        movies.put(119, new Movie(119, "Shichinin no samurai", 1954,
+        movies.put(112, new Data.Movie(112, "Le magnifique", 1973, "tt0070354"));
+        movies.put(113, new Data.Movie(113, "The Party", 1968, "tt0063415"));
+        movies.put(114, new Data.Movie(114, "The Box", 2009, "tt0362478"));
+        movies.put(115, new Data.Movie(115, "Everybodys Fine", 2009, "tt0780511"));
+        movies.put(116, new Data.Movie(116, "Peter and Vandy", 2009, "tt1144551"));
+        movies.put(117, new Data.Movie(117, "Psycho", 1960, "tt0054215"));
+        movies.put(118, new Data.Movie(118, "Women in Trouble", 2009, "tt1247704"));
+        movies.put(119, new Data.Movie(119, "Shichinin no samurai", 1954,
                 "tt0047478"));
-        movies.put(120, new Movie(120, "Yeopgijeogin geunyeo", 2001,
+        movies.put(120, new Data.Movie(120, "Yeopgijeogin geunyeo", 2001,
                 "tt0293715"));
-        movies.put(121, new Movie(121, "Samaria", 2004, "tt0397619"));
-        movies.put(122, new Movie(122, "Dial M for Murder", 1954, "tt0046912"));
-        movies.put(123, new Movie(123, "Un prophÅ te", 2009, "tt1235166"));
-        movies.put(124, new Movie(124, "The Vicious Kind", 2009, "tt1183921"));
-        movies.put(125, new Movie(125, "Bakjwi", 2009, "tt0762073"));
-        movies.put(126, new Movie(126, "Up in the air", 2009, "tt1193138"));
-        movies.put(127, new Movie(127,
+        movies.put(121, new Data.Movie(121, "Samaria", 2004, "tt0397619"));
+        movies.put(122, new Data.Movie(122, "Dial M for Murder", 1954, "tt0046912"));
+        movies.put(123, new Data.Movie(123, "Un prophÅ te", 2009, "tt1235166"));
+        movies.put(124, new Data.Movie(124, "The Vicious Kind", 2009, "tt1183921"));
+        movies.put(125, new Data.Movie(125, "Bakjwi", 2009, "tt0762073"));
+        movies.put(126, new Data.Movie(126, "Up in the air", 2009, "tt1193138"));
+        movies.put(127, new Data.Movie(127,
                 "The Little Girl Who Lives Down the Lane", 1976, "tt0074806"));
         movies.put(128,
-                new Movie(128, "Law Abiding Citizen", 2009, "tt1197624"));
-        movies.put(129, new Movie(129, "Nine", 2009, "tt0875034"));
-        movies.put(131, new Movie(131, "The Hurt Locker", 2008, "tt0887912"));
-        movies.put(132, new Movie(132, "The Soloist", 2009, "tt0821642"));
-        movies.put(133, new Movie(133, "Agora", 2009, "tt1186830"));
-        movies.put(134, new Movie(134, "Motherhood", 2009, "tt1220220"));
-        movies.put(135, new Movie(135, "The Wild Brunch", 1969, "tt0065214"));
-        movies.put(136, new Movie(136, "Ne?eli Hayat", 2009, "tt1523515"));
-        movies.put(137, new Movie(137, "The Greatest", 2009, "tt1226232"));
-        movies.put(138, new Movie(138, "My Only Sunshine", 2008, "tt1370212"));
-        movies.put(139, new Movie(139, "The Accused", 1988, "tt0094608"));
-        movies.put(140, new Movie(140, "Empire of the Sun", 1987, "tt0092965"));
-        movies.put(141, new Movie(141, "The Outsiders", 1983, "tt0086066"));
-        movies.put(142, new Movie(142,
+                new Data.Movie(128, "Law Abiding Citizen", 2009, "tt1197624"));
+        movies.put(129, new Data.Movie(129, "Nine", 2009, "tt0875034"));
+        movies.put(131, new Data.Movie(131, "The Hurt Locker", 2008, "tt0887912"));
+        movies.put(132, new Data.Movie(132, "The Soloist", 2009, "tt0821642"));
+        movies.put(133, new Data.Movie(133, "Agora", 2009, "tt1186830"));
+        movies.put(134, new Data.Movie(134, "Motherhood", 2009, "tt1220220"));
+        movies.put(135, new Data.Movie(135, "The Wild Brunch", 1969, "tt0065214"));
+        movies.put(136, new Data.Movie(136, "Ne?eli Hayat", 2009, "tt1523515"));
+        movies.put(137, new Data.Movie(137, "The Greatest", 2009, "tt1226232"));
+        movies.put(138, new Data.Movie(138, "My Only Sunshine", 2008, "tt1370212"));
+        movies.put(139, new Data.Movie(139, "The Accused", 1988, "tt0094608"));
+        movies.put(140, new Data.Movie(140, "Empire of the Sun", 1987, "tt0092965"));
+        movies.put(141, new Data.Movie(141, "The Outsiders", 1983, "tt0086066"));
+        movies.put(142, new Data.Movie(142,
                 "The Boondock Saints II: All Saints Day", 2009, "tt1300851"));
-        movies.put(143, new Movie(143, "From Paris with Love", 2010,
+        movies.put(143, new Data.Movie(143, "From Paris with Love", 2010,
                 "tt1179034"));
-        movies.put(144, new Movie(144, "Heavenly Creatures", 1994, "tt0110005"));
-        movies.put(145, new Movie(145, "The Private Lives of Pippa Lee", 2009,
+        movies.put(144, new Data.Movie(144, "Heavenly Creatures", 1994, "tt0110005"));
+        movies.put(145, new Data.Movie(145, "The Private Lives of Pippa Lee", 2009,
                 "tt1134629"));
-        movies.put(146, new Movie(146, "The Imaginarium of Doctor Parnassus",
+        movies.put(146, new Data.Movie(146, "The Imaginarium of Doctor Parnassus",
                 2009, "tt1054606"));
-        movies.put(147, new Movie(147, "The Men Who Stare at Goats", 2009,
+        movies.put(147, new Data.Movie(147, "The Men Who Stare at Goats", 2009,
                 "tt1234548"));
-        movies.put(148, new Movie(148, "Cloudy with a Chance of Meatballs",
+        movies.put(148, new Data.Movie(148, "Cloudy with a Chance of Meatballs",
                 2009, "tt0844471"));
-        movies.put(149, new Movie(149, "The Princess and the Frog", 2009,
+        movies.put(149, new Data.Movie(149, "The Princess and the Frog", 2009,
                 "tt0780521"));
-        movies.put(150, new Movie(150, "An Education", 2009, "tt1174732"));
-        movies.put(151, new Movie(151, "Avatar", 2009, "tt0499549"));
-        movies.put(152, new Movie(152, "Avatar 3D", 2009, "tt0499549"));
-        movies.put(153, new Movie(153,
+        movies.put(150, new Data.Movie(150, "An Education", 2009, "tt1174732"));
+        movies.put(151, new Data.Movie(151, "Avatar", 2009, "tt0499549"));
+        movies.put(152, new Data.Movie(152, "Avatar 3D", 2009, "tt0499549"));
+        movies.put(153, new Data.Movie(153,
                 "Precious: Based on the Novel Push by Sapphire", 2009,
                 "tt0929632"));
-        movies.put(154, new Movie(154, "The Blind Side", 2009, "tt0878804"));
-        movies.put(155, new Movie(155, "New Moon", 2009, "tt1259571"));
-        movies.put(156, new Movie(156, "Fantastic Mr. Fox", 2009, "tt0432283"));
-        movies.put(157, new Movie(157, "Sherlock Holmes", 2009, "tt0988045"));
-        movies.put(158, new Movie(158, "My Own Private Idaho", 1991,
+        movies.put(154, new Data.Movie(154, "The Blind Side", 2009, "tt0878804"));
+        movies.put(155, new Data.Movie(155, "New Moon", 2009, "tt1259571"));
+        movies.put(156, new Data.Movie(156, "Fantastic Mr. Fox", 2009, "tt0432283"));
+        movies.put(157, new Data.Movie(157, "Sherlock Holmes", 2009, "tt0988045"));
+        movies.put(158, new Data.Movie(158, "My Own Private Idaho", 1991,
                 "tt0102494"));
-        movies.put(159, new Movie(159, "The Road", 2009, "tt0898367"));
-        movies.put(160, new Movie(160, "Karamazovi", 2008, "tt1080716"));
-        movies.put(161, new Movie(161, "Mâ€žn som hatar kvinnor", 2009,
+        movies.put(159, new Data.Movie(159, "The Road", 2009, "tt0898367"));
+        movies.put(160, new Data.Movie(160, "Karamazovi", 2008, "tt1080716"));
+        movies.put(161, new Data.Movie(161, "Mâ€žn som hatar kvinnor", 2009,
                 "tt1132620"));
-        movies.put(162, new Movie(162, "The Collector", 2009, "tt0844479"));
-        movies.put(163, new Movie(163, "Bacheha-Ye aseman", 1997, "tt0118849"));
-        movies.put(164, new Movie(164, "Deiji", 2006, "tt0468704"));
-        movies.put(165, new Movie(165, "Leaves of Grass", 2009, "tt1151359"));
-        movies.put(166, new Movie(166, "Scarface", 1983, "tt0086250"));
-        movies.put(167, new Movie(167, "Wicker Park", 2004, "tt0324554"));
-        movies.put(168, new Movie(168, "L appartement", 1996, "tt0115561"));
-        movies.put(169, new Movie(169, "Brooklyns Finest", 2009, "tt1210042"));
-        movies.put(170, new Movie(170, "Alice", 2009, "tt1461312"));
-        movies.put(171, new Movie(171, "Duplicity", 2009, "tt1135487"));
-        movies.put(172, new Movie(172, "Harry Brown", 2009, "tt1289406"));
-        movies.put(173, new Movie(173, "Jeux Denfants", 2003, "tt0364517"));
-        movies.put(174, new Movie(174, "Defendor", 2009, "tt1303828"));
-        movies.put(175, new Movie(175, "Edge of Darkness", 2010, "tt1226273"));
-        movies.put(176, new Movie(176, "Just Like Heaven", 2005, "tt0425123"));
-        movies.put(177, new Movie(177, "2046", 2004, "tt0212712"));
-        movies.put(178, new Movie(178, "Brothers", 2009, "tt0765010"));
-        movies.put(179, new Movie(179, "Crazy Heart", 2009, "tt1263670"));
-        movies.put(180, new Movie(180, "Shutter Island", 2010, "tt1130884"));
-        movies.put(181, new Movie(181, "KÃ•skanmak", 2009, "tt1512894"));
-        movies.put(182, new Movie(182,
+        movies.put(162, new Data.Movie(162, "The Collector", 2009, "tt0844479"));
+        movies.put(163, new Data.Movie(163, "Bacheha-Ye aseman", 1997, "tt0118849"));
+        movies.put(164, new Data.Movie(164, "Deiji", 2006, "tt0468704"));
+        movies.put(165, new Data.Movie(165, "Leaves of Grass", 2009, "tt1151359"));
+        movies.put(166, new Data.Movie(166, "Scarface", 1983, "tt0086250"));
+        movies.put(167, new Data.Movie(167, "Wicker Park", 2004, "tt0324554"));
+        movies.put(168, new Data.Movie(168, "L appartement", 1996, "tt0115561"));
+        movies.put(169, new Data.Movie(169, "Brooklyns Finest", 2009, "tt1210042"));
+        movies.put(170, new Data.Movie(170, "Alice", 2009, "tt1461312"));
+        movies.put(171, new Data.Movie(171, "Duplicity", 2009, "tt1135487"));
+        movies.put(172, new Data.Movie(172, "Harry Brown", 2009, "tt1289406"));
+        movies.put(173, new Data.Movie(173, "Jeux Denfants", 2003, "tt0364517"));
+        movies.put(174, new Data.Movie(174, "Defendor", 2009, "tt1303828"));
+        movies.put(175, new Data.Movie(175, "Edge of Darkness", 2010, "tt1226273"));
+        movies.put(176, new Data.Movie(176, "Just Like Heaven", 2005, "tt0425123"));
+        movies.put(177, new Data.Movie(177, "2046", 2004, "tt0212712"));
+        movies.put(178, new Data.Movie(178, "Brothers", 2009, "tt0765010"));
+        movies.put(179, new Data.Movie(179, "Crazy Heart", 2009, "tt1263670"));
+        movies.put(180, new Data.Movie(180, "Shutter Island", 2010, "tt1130884"));
+        movies.put(181, new Data.Movie(181, "KÃ•skanmak", 2009, "tt1512894"));
+        movies.put(182, new Data.Movie(182,
                 "Das weisse Band - Eine deutsche Kindergeschichte", 2009,
                 "tt1149362"));
-        movies.put(183, new Movie(183, "The Lovely Bones", 2009, "tt0380510"));
-        movies.put(184, new Movie(184, "Eastern Plays", 2009, "tt1426361"));
-        movies.put(185, new Movie(185, "Ghost Town", 2008, "tt0995039"));
-        movies.put(186, new Movie(186, "Almost Famous", 2000, "tt0181875"));
-        movies.put(187, new Movie(187, "Cargo", 2009, "tt0381940"));
-        movies.put(188, new Movie(188, "Glorious 39", 2009, "tt1319694"));
-        movies.put(189, new Movie(189, "Fifty Dead Men Walking", 2009,
+        movies.put(183, new Data.Movie(183, "The Lovely Bones", 2009, "tt0380510"));
+        movies.put(184, new Data.Movie(184, "Eastern Plays", 2009, "tt1426361"));
+        movies.put(185, new Data.Movie(185, "Ghost Town", 2008, "tt0995039"));
+        movies.put(186, new Data.Movie(186, "Almost Famous", 2000, "tt0181875"));
+        movies.put(187, new Data.Movie(187, "Cargo", 2009, "tt0381940"));
+        movies.put(188, new Data.Movie(188, "Glorious 39", 2009, "tt1319694"));
+        movies.put(189, new Data.Movie(189, "Fifty Dead Men Walking", 2009,
                 "tt1097643"));
-        movies.put(190, new Movie(190, "Grey Gardens", 2009, "tt0758751"));
-        movies.put(191, new Movie(191, "The Bounty Hunter", 2010, "tt1038919"));
-        movies.put(192, new Movie(192, "To Verdener", 2008, "tt1065318"));
-        movies.put(193, new Movie(193, "Vavien", 2009, "tt1558877"));
-        movies.put(194, new Movie(194, "The Return of Frank James", 1940,
+        movies.put(190, new Data.Movie(190, "Grey Gardens", 2009, "tt0758751"));
+        movies.put(191, new Data.Movie(191, "The Bounty Hunter", 2010, "tt1038919"));
+        movies.put(192, new Data.Movie(192, "To Verdener", 2008, "tt1065318"));
+        movies.put(193, new Data.Movie(193, "Vavien", 2009, "tt1558877"));
+        movies.put(194, new Data.Movie(194, "The Return of Frank James", 1940,
                 "tt0032983"));
-        movies.put(195, new Movie(195, "Lebanon", 2009, "tt1483831"));
-        movies.put(196, new Movie(196,
+        movies.put(195, new Data.Movie(195, "Lebanon", 2009, "tt1483831"));
+        movies.put(196, new Data.Movie(196,
                 "Harry Potter and the Half-Blood Prince", 2009, "tt0417741"));
-        movies.put(197, new Movie(197, "Slovenka", 2009, "tt1224373"));
-        movies.put(198, new Movie(198, "9:06", 2009, "tt1361326"));
-        movies.put(199, new Movie(199, "Der amerikanische Freund", 1977,
+        movies.put(197, new Data.Movie(197, "Slovenka", 2009, "tt1224373"));
+        movies.put(198, new Data.Movie(198, "9:06", 2009, "tt1361326"));
+        movies.put(199, new Data.Movie(199, "Der amerikanische Freund", 1977,
                 "tt0075675"));
-        movies.put(200, new Movie(200, "2081", 2009, "tt1282015"));
-        movies.put(201, new Movie(201, "Dear John", 2010, "tt0989757"));
-        movies.put(202, new Movie(202, "Broken English", 2007, "tt0772157"));
-        movies.put(203, new Movie(203, "The Last Wave", 1977, "tt0076299"));
-        movies.put(204, new Movie(204, "The Rainmaker", 1997, "tt0119978"));
-        movies.put(205, new Movie(205, "Keulraesik", 2003, "tt0348568"));
-        movies.put(206, new Movie(206, "The Electric Mist", 2009, "tt0910905"));
-        movies.put(207, new Movie(207, "Serious Moonlight", 2009, "tt1133993"));
-        movies.put(208, new Movie(208, "Ice Age", 2002, "tt0268380"));
-        movies.put(209, new Movie(209, "Ice Age: The Meltdown", 2006,
+        movies.put(200, new Data.Movie(200, "2081", 2009, "tt1282015"));
+        movies.put(201, new Data.Movie(201, "Dear John", 2010, "tt0989757"));
+        movies.put(202, new Data.Movie(202, "Broken English", 2007, "tt0772157"));
+        movies.put(203, new Data.Movie(203, "The Last Wave", 1977, "tt0076299"));
+        movies.put(204, new Data.Movie(204, "The Rainmaker", 1997, "tt0119978"));
+        movies.put(205, new Data.Movie(205, "Keulraesik", 2003, "tt0348568"));
+        movies.put(206, new Data.Movie(206, "The Electric Mist", 2009, "tt0910905"));
+        movies.put(207, new Data.Movie(207, "Serious Moonlight", 2009, "tt1133993"));
+        movies.put(208, new Data.Movie(208, "Ice Age", 2002, "tt0268380"));
+        movies.put(209, new Data.Movie(209, "Ice Age: The Meltdown", 2006,
                 "tt0438097"));
-        movies.put(210, new Movie(210, "Ice Age: Dawn of the Dinosaurs", 2009,
+        movies.put(210, new Data.Movie(210, "Ice Age: Dawn of the Dinosaurs", 2009,
                 "tt1080016"));
-        movies.put(211, new Movie(211, "La doppia ora", 2009, "tt1379222"));
-        movies.put(212, new Movie(212, "A Single Man", 2009, "tt1315981"));
-        movies.put(213, new Movie(213, "Cracks", 2009, "tt1183665"));
-        movies.put(214, new Movie(214, "The Missing Person", 2009, "tt1105512"));
-        movies.put(215, new Movie(215, "Extraordinary Measures", 2010,
+        movies.put(211, new Data.Movie(211, "La doppia ora", 2009, "tt1379222"));
+        movies.put(212, new Data.Movie(212, "A Single Man", 2009, "tt1315981"));
+        movies.put(213, new Data.Movie(213, "Cracks", 2009, "tt1183665"));
+        movies.put(214, new Data.Movie(214, "The Missing Person", 2009, "tt1105512"));
+        movies.put(215, new Data.Movie(215, "Extraordinary Measures", 2010,
                 "tt1244659"));
-        movies.put(216, new Movie(216, "Leap Year", 2010, "tt1216492"));
-        movies.put(217, new Movie(217, "Nowhere Boy", 2009, "tt1266029"));
-        movies.put(218, new Movie(218, "Yah?i BatÃ•", 2010, "tt1567448"));
-        movies.put(219, new Movie(219, "Sonbahar", 2008, "tt1330591"));
-        movies.put(220, new Movie(220, "Tombstone", 1993, "tt0108358"));
-        movies.put(221, new Movie(221, "La Sconosciuta", 2006, "tt0494271"));
-        movies.put(222, new Movie(222, "I Love You Phillip Morris", 2010,
+        movies.put(216, new Data.Movie(216, "Leap Year", 2010, "tt1216492"));
+        movies.put(217, new Data.Movie(217, "Nowhere Boy", 2009, "tt1266029"));
+        movies.put(218, new Data.Movie(218, "Yah?i BatÃ•", 2010, "tt1567448"));
+        movies.put(219, new Data.Movie(219, "Sonbahar", 2008, "tt1330591"));
+        movies.put(220, new Data.Movie(220, "Tombstone", 1993, "tt0108358"));
+        movies.put(221, new Data.Movie(221, "La Sconosciuta", 2006, "tt0494271"));
+        movies.put(222, new Data.Movie(222, "I Love You Phillip Morris", 2010,
                 "tt1045772"));
-        movies.put(223, new Movie(223, "You Dont Know Jack", 2010, "tt1132623"));
-        movies.put(224, new Movie(224, "Ex Drummer", 2007, "tt0812243"));
-        movies.put(225, new Movie(225, "Yip Man", 2008, "tt1220719"));
-        movies.put(226, new Movie(226, "Yip Man 2: Chung si chuen kei", 2010,
+        movies.put(223, new Data.Movie(223, "You Dont Know Jack", 2010, "tt1132623"));
+        movies.put(224, new Data.Movie(224, "Ex Drummer", 2007, "tt0812243"));
+        movies.put(225, new Data.Movie(225, "Yip Man", 2008, "tt1220719"));
+        movies.put(226, new Data.Movie(226, "Yip Man 2: Chung si chuen kei", 2010,
                 "tt1386932"));
         movies.put(227,
-                new Movie(227, "Alice in Wonderland", 2010, "tt1014759"));
-        movies.put(228, new Movie(228, "Chloe", 2009, "tt1352824"));
-        movies.put(229, new Movie(229, "Elegy", 2008, "tt0974554"));
-        movies.put(230, new Movie(230, "Voditel dlya Very", 2004, "tt0416292"));
-        movies.put(231, new Movie(231, "Romantik Komedi", 2010, "tt1587263"));
-        movies.put(232, new Movie(232, "Veda", 2010, "tt1586001"));
-        movies.put(233, new Movie(233, "Drag Me to Hell", 2009, "tt1127180"));
-        movies.put(234, new Movie(234, "Stalag 17", 1953, "tt0046359"));
-        movies.put(235, new Movie(235, "What Doesnt Kill You", 2008,
+                new Data.Movie(227, "Alice in Wonderland", 2010, "tt1014759"));
+        movies.put(228, new Data.Movie(228, "Chloe", 2009, "tt1352824"));
+        movies.put(229, new Data.Movie(229, "Elegy", 2008, "tt0974554"));
+        movies.put(230, new Data.Movie(230, "Voditel dlya Very", 2004, "tt0416292"));
+        movies.put(231, new Data.Movie(231, "Romantik Komedi", 2010, "tt1587263"));
+        movies.put(232, new Data.Movie(232, "Veda", 2010, "tt1586001"));
+        movies.put(233, new Data.Movie(233, "Drag Me to Hell", 2009, "tt1127180"));
+        movies.put(234, new Data.Movie(234, "Stalag 17", 1953, "tt0046359"));
+        movies.put(235, new Data.Movie(235, "What Doesnt Kill You", 2008,
                 "tt1133991"));
-        movies.put(236, new Movie(236, "Faubourg 36", 2008, "tt0948535"));
-        movies.put(237, new Movie(237, "Germinal", 1993, "tt0107002"));
-        movies.put(238, new Movie(238,
+        movies.put(236, new Data.Movie(236, "Faubourg 36", 2008, "tt0948535"));
+        movies.put(237, new Data.Movie(237, "Germinal", 1993, "tt0107002"));
+        movies.put(238, new Data.Movie(238,
                 "My Left Foot: The Story of Christy Brown", 1989, "tt0097937"));
-        movies.put(239, new Movie(239, "Sin Nombre", 2010, "tt1127715"));
-        movies.put(240, new Movie(240, "Eloâ€¹se", 2009, "tt1221188"));
-        movies.put(241, new Movie(241, "Ba?ka Dilde A?k", 2009, "tt1513713"));
-        movies.put(242, new Movie(242, "The Book of Eli", 2010, "tt1037705"));
-        movies.put(243, new Movie(243, "Air Doll", 2009, "tt1371630"));
-        movies.put(244, new Movie(244, "Azumi", 2003, "tt0384819"));
-        movies.put(245, new Movie(245, "Azumi 2: Death or Love", 2005,
+        movies.put(239, new Data.Movie(239, "Sin Nombre", 2010, "tt1127715"));
+        movies.put(240, new Data.Movie(240, "Eloâ€¹se", 2009, "tt1221188"));
+        movies.put(241, new Data.Movie(241, "Ba?ka Dilde A?k", 2009, "tt1513713"));
+        movies.put(242, new Data.Movie(242, "The Book of Eli", 2010, "tt1037705"));
+        movies.put(243, new Data.Movie(243, "Air Doll", 2009, "tt1371630"));
+        movies.put(244, new Data.Movie(244, "Azumi", 2003, "tt0384819"));
+        movies.put(245, new Data.Movie(245, "Azumi 2: Death or Love", 2005,
                 "tt0431641"));
-        movies.put(246, new Movie(246, "Unthinkable", 2010, "tt0914863"));
+        movies.put(246, new Data.Movie(246, "Unthinkable", 2010, "tt0914863"));
         movies.put(255,
-                new Movie(255, "Shrek Forever After", 2010, "tt0892791"));
-        genres.put(1, new Genre(1, "Comedy"));
-        genres.put(2, new Genre(2, "Drama"));
-        genres.put(3, new Genre(3, "Romance"));
-        genres.put(4, new Genre(4, "Mystery"));
-        genres.put(5, new Genre(5, "Action"));
-        genres.put(6, new Genre(6, "Sci-Fi"));
-        genres.put(7, new Genre(7, "Thriller"));
-        genres.put(8, new Genre(8, "War"));
-        genres.put(9, new Genre(9, "Biography"));
-        genres.put(10, new Genre(10, "History"));
-        genres.put(11, new Genre(11, "Adventure"));
-        genres.put(12, new Genre(12, "Animation"));
-        genres.put(13, new Genre(13, "Family"));
-        genres.put(14, new Genre(14, "Crime"));
-        genres.put(15, new Genre(15, "Horror"));
-        genres.put(16, new Genre(16, "Sport"));
-        genres.put(17, new Genre(17, "Fantasy"));
-        genres.put(18, new Genre(18, "Music"));
-        genres.put(19, new Genre(19, "Film-Noir"));
-        genres.put(20, new Genre(20, "Western"));
-        genres.put(21, new Genre(21, "Documentary"));
-        genres.put(22, new Genre(22, "Musical"));
+                new Data.Movie(255, "Shrek Forever After", 2010, "tt0892791"));
+        genres.put(1, new Data.Genre(1, "Comedy"));
+        genres.put(2, new Data.Genre(2, "Drama"));
+        genres.put(3, new Data.Genre(3, "Romance"));
+        genres.put(4, new Data.Genre(4, "Mystery"));
+        genres.put(5, new Data.Genre(5, "Action"));
+        genres.put(6, new Data.Genre(6, "Sci-Fi"));
+        genres.put(7, new Data.Genre(7, "Thriller"));
+        genres.put(8, new Data.Genre(8, "War"));
+        genres.put(9, new Data.Genre(9, "Biography"));
+        genres.put(10, new Data.Genre(10, "History"));
+        genres.put(11, new Data.Genre(11, "Adventure"));
+        genres.put(12, new Data.Genre(12, "Animation"));
+        genres.put(13, new Data.Genre(13, "Family"));
+        genres.put(14, new Data.Genre(14, "Crime"));
+        genres.put(15, new Data.Genre(15, "Horror"));
+        genres.put(16, new Data.Genre(16, "Sport"));
+        genres.put(17, new Data.Genre(17, "Fantasy"));
+        genres.put(18, new Data.Genre(18, "Music"));
+        genres.put(19, new Data.Genre(19, "Film-Noir"));
+        genres.put(20, new Data.Genre(20, "Western"));
+        genres.put(21, new Data.Genre(21, "Documentary"));
+        genres.put(22, new Data.Genre(22, "Musical"));
         movies.get(1).getGenres().add(genres.get(1));
         movies.get(1).getGenres().add(genres.get(2));
         movies.get(1).getGenres().add(genres.get(3));
@@ -986,253 +1009,253 @@ public class InMemoryMovieService {
         movies.get(214).getGenres().add(genres.get(1));
         movies.get(214).getGenres().add(genres.get(1));
         movies.get(214).getGenres().add(genres.get(1));
-        directors.put(1, new Director(1, "Marc Webb", "nm1989536"));
-        directors.put(2, new Director(2, "Peter Hyams", "nm0001382"));
-        directors.put(3, new Director(3, "Mark Neveldine", "nm0004410"));
-        directors.put(4, new Director(4, "Brian Taylor", "nm0962729"));
-        directors.put(5, new Director(5, "Stephen Frears", "nm0001241"));
-        directors.put(6, new Director(6, "Oliver Parker", "nm0662529"));
-        directors.put(7, new Director(7, "Quentin Tarantino", "nm0000233"));
-        directors.put(8, new Director(8, "Clint Eastwood", "nm0000142"));
-        directors.put(9, new Director(9, "Nora Ephron", "nm0001188"));
-        directors.put(10, new Director(10, "Pedro Almodovar", "nm0000264"));
-        directors.put(11, new Director(11, "Gary Sinise", "nm0000641"));
-        directors.put(12, new Director(12, "NimrÂ¢d Antal", "nm0030735"));
-        directors.put(13, new Director(13, "?nan Temelkuran", "nm3692009"));
-        directors.put(14, new Director(14, "Anne Fontaine", "nm0284774"));
-        directors.put(15, new Director(15, "Levent Semerci", "nm2896395"));
-        directors.put(16, new Director(16, "Pete Docter", "nm0230032"));
-        directors.put(17, new Director(17, "Dominic Sena", "nm0784061"));
-        directors.put(18, new Director(18, "Robert Schwentke", "nm0777881"));
-        directors.put(19, new Director(19, "Woody Allen", "nm0000095"));
-        directors.put(20, new Director(20, "Max Fâ€žrberbâ€�ck", "nm0299621"));
-        directors.put(21, new Director(21, "Ruben Fleischer", "nm0281508"));
-        directors.put(22, new Director(22, "Blayne Weaver", "nm0915814"));
-        directors.put(23, new Director(23, "Zack Snyder", "nm0811583"));
-        directors.put(24, new Director(24, "Paul Schrader", "nm0001707"));
-        directors.put(25, new Director(25, "Ron Howard", "nm0000165"));
-        directors.put(26, new Director(26, "Sam Mendes", "nm0005222"));
-        directors.put(27, new Director(27, "Glendyn Ivin", "nm1380395"));
-        directors.put(28, new Director(28, "Scott Hicks", "nm0382956"));
-        directors.put(29, new Director(29, "Rod Lurie", "nm0527109"));
-        directors.put(30, new Director(30, "Eric Red", "nm0714599"));
-        directors.put(31, new Director(31, "Scott Mann", "nm1470993"));
-        directors.put(32, new Director(32, "Philipp Stâ€�lzl", "nm0836715"));
-        directors.put(33, new Director(33, "Ethan Coen", "nm0001053"));
-        directors.put(34, new Director(34, "Joel Coen", "nm0001054"));
-        directors.put(35, new Director(35, "Kevin Greutert", "nm0340436"));
-        directors.put(36, new Director(36, "Marina de Van", "nm0888418"));
-        directors.put(37, new Director(37, "Neill Blomkamp", "nm0088955"));
-        directors.put(38, new Director(38, "Mike Judge", "nm0431918"));
-        directors.put(39, new Director(39, "Oliver Hirschbiegel", "nm0386570"));
-        directors.put(40, new Director(40, "Gary Yates", "nm0946750"));
-        directors.put(41, new Director(41, "Anne Fletcher", "nm0281945"));
-        directors.put(42, new Director(42, "Emily Young", "nm1369721"));
-        directors.put(43, new Director(43, "Richard Eyre", "nm0264236"));
-        directors.put(44, new Director(44, "Neal Brennan", "nm0107366"));
-        directors.put(45, new Director(45, "Todd Phillips", "nm0680846"));
-        directors.put(46, new Director(46, "Micheal Mann", "nm0000520"));
-        directors.put(47, new Director(47, "Jon Amiel", "nm0000750"));
-        directors.put(48, new Director(48, "Mira Nair", "nm0619762"));
-        directors.put(49, new Director(49, "Bart Freundlich", "nm0294505"));
-        directors.put(50, new Director(50, "Timothy Linh Bui", "nm0119613"));
-        directors.put(51, new Director(51, "Grant Heslov", "nm0381416"));
-        directors.put(52, new Director(52, "Jane Campion", "nm0001005"));
-        directors.put(53, new Director(53, "Christian Alvert", "nm0023355"));
-        directors.put(54, new Director(54, "Sophie Barthes", "nm1754436"));
-        directors.put(55, new Director(55, "Duncan Jones", "nm1512910"));
-        directors.put(56, new Director(56, "Bobcat Goldthwait", "nm0001281"));
-        directors.put(57, new Director(57, "Oren Peli", "nm2305431"));
-        directors.put(58, new Director(58, "Kevin Macdonald", "nm0531817"));
-        directors.put(59, new Director(59, "Andy DeEmmony", "nm0214320"));
-        directors.put(60, new Director(60, "Rian Johnson", "nm0426059"));
-        directors.put(61, new Director(61, "Richard Loncraine", "nm0518644"));
-        directors.put(62, new Director(62, "Niels Arden Oplev", "nm0649117"));
-        directors.put(63, new Director(63, "Adam Elliot", "nm0254178"));
-        directors.put(64, new Director(64, "Jim Jarmusch", "nm0000464"));
-        directors.put(65, new Director(65, "Christine Jeffs", "nm0420422"));
-        directors.put(66, new Director(66, "David Twohy", "nm0878638"));
-        directors.put(67, new Director(67, "Nick Cassavetes", "nm0001024"));
-        directors.put(68, new Director(68, "Martin Koolhoven", "nm0465551"));
-        directors.put(69, new Director(69, "Jorge Blanco", "nm3360961"));
-        directors.put(70, new Director(70, "Milcho Manchevski", "nm0541391"));
-        directors.put(71, new Director(71, "John Hamburg", "nm0357453"));
-        directors.put(72, new Director(72, "Costas Ferris", "nm0002948"));
-        directors.put(73, new Director(73, "Tom Hooper", "nm0393799"));
-        directors.put(74, new Director(74, "Paul Wilmshurst", "nm0932882"));
-        directors.put(75, new Director(75, "Fatih AkÃ•n", "nm0015359"));
-        directors.put(76, new Director(76, "Yvan Attal", "nm0040939"));
-        directors.put(77, new Director(77, "Andrea Arnold", "nm0036349"));
-        directors.put(78, new Director(78, "Steven Soderbergh", "nm0001752"));
-        directors.put(79, new Director(79, "John Kent Harrison", "nm0006867"));
+        directors.put(1, new Data.Director(1, "Marc Webb", "nm1989536"));
+        directors.put(2, new Data.Director(2, "Peter Hyams", "nm0001382"));
+        directors.put(3, new Data.Director(3, "Mark Neveldine", "nm0004410"));
+        directors.put(4, new Data.Director(4, "Brian Taylor", "nm0962729"));
+        directors.put(5, new Data.Director(5, "Stephen Frears", "nm0001241"));
+        directors.put(6, new Data.Director(6, "Oliver Parker", "nm0662529"));
+        directors.put(7, new Data.Director(7, "Quentin Tarantino", "nm0000233"));
+        directors.put(8, new Data.Director(8, "Clint Eastwood", "nm0000142"));
+        directors.put(9, new Data.Director(9, "Nora Ephron", "nm0001188"));
+        directors.put(10, new Data.Director(10, "Pedro Almodovar", "nm0000264"));
+        directors.put(11, new Data.Director(11, "Gary Sinise", "nm0000641"));
+        directors.put(12, new Data.Director(12, "NimrÂ¢d Antal", "nm0030735"));
+        directors.put(13, new Data.Director(13, "?nan Temelkuran", "nm3692009"));
+        directors.put(14, new Data.Director(14, "Anne Fontaine", "nm0284774"));
+        directors.put(15, new Data.Director(15, "Levent Semerci", "nm2896395"));
+        directors.put(16, new Data.Director(16, "Pete Docter", "nm0230032"));
+        directors.put(17, new Data.Director(17, "Dominic Sena", "nm0784061"));
+        directors.put(18, new Data.Director(18, "Robert Schwentke", "nm0777881"));
+        directors.put(19, new Data.Director(19, "Woody Allen", "nm0000095"));
+        directors.put(20, new Data.Director(20, "Max Fâ€žrberbâ€�ck", "nm0299621"));
+        directors.put(21, new Data.Director(21, "Ruben Fleischer", "nm0281508"));
+        directors.put(22, new Data.Director(22, "Blayne Weaver", "nm0915814"));
+        directors.put(23, new Data.Director(23, "Zack Snyder", "nm0811583"));
+        directors.put(24, new Data.Director(24, "Paul Schrader", "nm0001707"));
+        directors.put(25, new Data.Director(25, "Ron Howard", "nm0000165"));
+        directors.put(26, new Data.Director(26, "Sam Mendes", "nm0005222"));
+        directors.put(27, new Data.Director(27, "Glendyn Ivin", "nm1380395"));
+        directors.put(28, new Data.Director(28, "Scott Hicks", "nm0382956"));
+        directors.put(29, new Data.Director(29, "Rod Lurie", "nm0527109"));
+        directors.put(30, new Data.Director(30, "Eric Red", "nm0714599"));
+        directors.put(31, new Data.Director(31, "Scott Mann", "nm1470993"));
+        directors.put(32, new Data.Director(32, "Philipp Stâ€�lzl", "nm0836715"));
+        directors.put(33, new Data.Director(33, "Ethan Coen", "nm0001053"));
+        directors.put(34, new Data.Director(34, "Joel Coen", "nm0001054"));
+        directors.put(35, new Data.Director(35, "Kevin Greutert", "nm0340436"));
+        directors.put(36, new Data.Director(36, "Marina de Van", "nm0888418"));
+        directors.put(37, new Data.Director(37, "Neill Blomkamp", "nm0088955"));
+        directors.put(38, new Data.Director(38, "Mike Judge", "nm0431918"));
+        directors.put(39, new Data.Director(39, "Oliver Hirschbiegel", "nm0386570"));
+        directors.put(40, new Data.Director(40, "Gary Yates", "nm0946750"));
+        directors.put(41, new Data.Director(41, "Anne Fletcher", "nm0281945"));
+        directors.put(42, new Data.Director(42, "Emily Young", "nm1369721"));
+        directors.put(43, new Data.Director(43, "Richard Eyre", "nm0264236"));
+        directors.put(44, new Data.Director(44, "Neal Brennan", "nm0107366"));
+        directors.put(45, new Data.Director(45, "Todd Phillips", "nm0680846"));
+        directors.put(46, new Data.Director(46, "Micheal Mann", "nm0000520"));
+        directors.put(47, new Data.Director(47, "Jon Amiel", "nm0000750"));
+        directors.put(48, new Data.Director(48, "Mira Nair", "nm0619762"));
+        directors.put(49, new Data.Director(49, "Bart Freundlich", "nm0294505"));
+        directors.put(50, new Data.Director(50, "Timothy Linh Bui", "nm0119613"));
+        directors.put(51, new Data.Director(51, "Grant Heslov", "nm0381416"));
+        directors.put(52, new Data.Director(52, "Jane Campion", "nm0001005"));
+        directors.put(53, new Data.Director(53, "Christian Alvert", "nm0023355"));
+        directors.put(54, new Data.Director(54, "Sophie Barthes", "nm1754436"));
+        directors.put(55, new Data.Director(55, "Duncan Jones", "nm1512910"));
+        directors.put(56, new Data.Director(56, "Bobcat Goldthwait", "nm0001281"));
+        directors.put(57, new Data.Director(57, "Oren Peli", "nm2305431"));
+        directors.put(58, new Data.Director(58, "Kevin Macdonald", "nm0531817"));
+        directors.put(59, new Data.Director(59, "Andy DeEmmony", "nm0214320"));
+        directors.put(60, new Data.Director(60, "Rian Johnson", "nm0426059"));
+        directors.put(61, new Data.Director(61, "Richard Loncraine", "nm0518644"));
+        directors.put(62, new Data.Director(62, "Niels Arden Oplev", "nm0649117"));
+        directors.put(63, new Data.Director(63, "Adam Elliot", "nm0254178"));
+        directors.put(64, new Data.Director(64, "Jim Jarmusch", "nm0000464"));
+        directors.put(65, new Data.Director(65, "Christine Jeffs", "nm0420422"));
+        directors.put(66, new Data.Director(66, "David Twohy", "nm0878638"));
+        directors.put(67, new Data.Director(67, "Nick Cassavetes", "nm0001024"));
+        directors.put(68, new Data.Director(68, "Martin Koolhoven", "nm0465551"));
+        directors.put(69, new Data.Director(69, "Jorge Blanco", "nm3360961"));
+        directors.put(70, new Data.Director(70, "Milcho Manchevski", "nm0541391"));
+        directors.put(71, new Data.Director(71, "John Hamburg", "nm0357453"));
+        directors.put(72, new Data.Director(72, "Costas Ferris", "nm0002948"));
+        directors.put(73, new Data.Director(73, "Tom Hooper", "nm0393799"));
+        directors.put(74, new Data.Director(74, "Paul Wilmshurst", "nm0932882"));
+        directors.put(75, new Data.Director(75, "Fatih AkÃ•n", "nm0015359"));
+        directors.put(76, new Data.Director(76, "Yvan Attal", "nm0040939"));
+        directors.put(77, new Data.Director(77, "Andrea Arnold", "nm0036349"));
+        directors.put(78, new Data.Director(78, "Steven Soderbergh", "nm0001752"));
+        directors.put(79, new Data.Director(79, "John Kent Harrison", "nm0006867"));
         directors.put(80,
-                new Director(80, "Hans-Christian Schmid", "nm0772691"));
-        directors.put(81, new Director(81, "Sidney Lumet", "nm0001486"));
-        directors.put(82, new Director(82, "Christopher Smith", "nm1247462"));
-        directors.put(83, new Director(83, "John Sturges", "nm0836328"));
-        directors.put(84, new Director(84, "Roland Emmerich", "nm0000386"));
-        directors.put(85, new Director(85, "Jamie Thraves", "nm0861899"));
-        directors.put(86, new Director(86, "Vikram K. Kumar", "nm3347823"));
-        directors.put(87, new Director(87, "Billy Wilder", "nm0000697"));
-        directors.put(88, new Director(88, "George Roy Hill", "nm0001351"));
-        directors.put(89, new Director(89, "Juan Josâ€š Campanella",
+                new Data.Director(80, "Hans-Christian Schmid", "nm0772691"));
+        directors.put(81, new Data.Director(81, "Sidney Lumet", "nm0001486"));
+        directors.put(82, new Data.Director(82, "Christopher Smith", "nm1247462"));
+        directors.put(83, new Data.Director(83, "John Sturges", "nm0836328"));
+        directors.put(84, new Data.Director(84, "Roland Emmerich", "nm0000386"));
+        directors.put(85, new Data.Director(85, "Jamie Thraves", "nm0861899"));
+        directors.put(86, new Data.Director(86, "Vikram K. Kumar", "nm3347823"));
+        directors.put(87, new Data.Director(87, "Billy Wilder", "nm0000697"));
+        directors.put(88, new Data.Director(88, "George Roy Hill", "nm0001351"));
+        directors.put(89, new Data.Director(89, "Juan Josâ€š Campanella",
                 "nm0002728"));
-        directors.put(90, new Director(90, "Andrzej Wajda", "nm0906667"));
-        directors.put(91, new Director(91, "Dennis Hopper", "nm0000454"));
-        directors.put(92, new Director(92, "Jonathan Mostow", "nm0609236"));
-        directors.put(93, new Director(93, "Elia Kazan", "nm0001415"));
-        directors.put(94, new Director(94, "Alfred Hitchcock", "nm0000033"));
-        directors.put(95, new Director(95, "Ki-duk Kim", "nm1104118"));
-        directors.put(96, new Director(96, "Gordon Douglas", "nm0235066"));
-        directors.put(97, new Director(97, "John H. Lee", "nm0497565"));
-        directors.put(98, new Director(98, "Hae-jun Lee", "nm1536497"));
+        directors.put(90, new Data.Director(90, "Andrzej Wajda", "nm0906667"));
+        directors.put(91, new Data.Director(91, "Dennis Hopper", "nm0000454"));
+        directors.put(92, new Data.Director(92, "Jonathan Mostow", "nm0609236"));
+        directors.put(93, new Data.Director(93, "Elia Kazan", "nm0001415"));
+        directors.put(94, new Data.Director(94, "Alfred Hitchcock", "nm0000033"));
+        directors.put(95, new Data.Director(95, "Ki-duk Kim", "nm1104118"));
+        directors.put(96, new Data.Director(96, "Gordon Douglas", "nm0235066"));
+        directors.put(97, new Data.Director(97, "John H. Lee", "nm0497565"));
+        directors.put(98, new Data.Director(98, "Hae-jun Lee", "nm1536497"));
         directors
-                .put(99, new Director(99, "Mahmut FazÃ•l Co?kun", "nm3312722"));
-        directors.put(100, new Director(100, "Michael Spierig", "nm1294961"));
-        directors.put(101, new Director(101, "Peter Spierig", "nm1294962"));
-        directors.put(102, new Director(102, "Chan-wook Park", "nm0661791"));
-        directors.put(103, new Director(103, "Ruba Nadda", "nm0618779"));
-        directors.put(104, new Director(104, "Ben Hopkins", "nm0394114"));
-        directors.put(105, new Director(105, "Louie Psihoyos", "nm3174775"));
-        directors.put(106, new Director(106, "John Polson", "nm0689852"));
-        directors.put(107, new Director(107, "Lasse Hallstrâ€�m", "nm0002120"));
-        directors.put(108, new Director(108, "John Huston", "nm0001379"));
-        directors.put(109, new Director(109, "Philippe de Broca", "nm0003606"));
-        directors.put(110, new Director(110, "Blake Edwards", "nm0001175"));
-        directors.put(111, new Director(111, "Richard Kelly", "nm0446819"));
-        directors.put(112, new Director(112, "Kirk Jones", "nm0428600"));
-        directors.put(113, new Director(113, "Jay DiPietro", "nm2842549"));
+                .put(99, new Data.Director(99, "Mahmut FazÃ•l Co?kun", "nm3312722"));
+        directors.put(100, new Data.Director(100, "Michael Spierig", "nm1294961"));
+        directors.put(101, new Data.Director(101, "Peter Spierig", "nm1294962"));
+        directors.put(102, new Data.Director(102, "Chan-wook Park", "nm0661791"));
+        directors.put(103, new Data.Director(103, "Ruba Nadda", "nm0618779"));
+        directors.put(104, new Data.Director(104, "Ben Hopkins", "nm0394114"));
+        directors.put(105, new Data.Director(105, "Louie Psihoyos", "nm3174775"));
+        directors.put(106, new Data.Director(106, "John Polson", "nm0689852"));
+        directors.put(107, new Data.Director(107, "Lasse Hallstrâ€�m", "nm0002120"));
+        directors.put(108, new Data.Director(108, "John Huston", "nm0001379"));
+        directors.put(109, new Data.Director(109, "Philippe de Broca", "nm0003606"));
+        directors.put(110, new Data.Director(110, "Blake Edwards", "nm0001175"));
+        directors.put(111, new Data.Director(111, "Richard Kelly", "nm0446819"));
+        directors.put(112, new Data.Director(112, "Kirk Jones", "nm0428600"));
+        directors.put(113, new Data.Director(113, "Jay DiPietro", "nm2842549"));
         directors.put(114,
-                new Director(114, "Sebastian Gutierrez", "nm0349406"));
-        directors.put(115, new Director(115, "Akira Kurosawa", "nm0000041"));
-        directors.put(116, new Director(116, "Jae-young Kwak", "nm1030706"));
-        directors.put(117, new Director(117, "Jacques Audiard", "nm0002191"));
+                new Data.Director(114, "Sebastian Gutierrez", "nm0349406"));
+        directors.put(115, new Data.Director(115, "Akira Kurosawa", "nm0000041"));
+        directors.put(116, new Data.Director(116, "Jae-young Kwak", "nm1030706"));
+        directors.put(117, new Data.Director(117, "Jacques Audiard", "nm0002191"));
         directors
-                .put(118, new Director(118, "Lee Toland Krieger", "nm1767218"));
-        directors.put(119, new Director(119, "Jason Reitman", "nm0718646"));
-        directors.put(120, new Director(120, "Nicolas Gessner", "nm0004654"));
-        directors.put(121, new Director(121, "F. Gary Gray", "nm0336620"));
-        directors.put(122, new Director(122, "Rob Marshall", "nm0551128"));
-        directors.put(123, new Director(123, "Kathryn Bigelow", "nm0000941"));
-        directors.put(124, new Director(124, "Joe Wright", "m0942504"));
+                .put(118, new Data.Director(118, "Lee Toland Krieger", "nm1767218"));
+        directors.put(119, new Data.Director(119, "Jason Reitman", "nm0718646"));
+        directors.put(120, new Data.Director(120, "Nicolas Gessner", "nm0004654"));
+        directors.put(121, new Data.Director(121, "F. Gary Gray", "nm0336620"));
+        directors.put(122, new Data.Director(122, "Rob Marshall", "nm0551128"));
+        directors.put(123, new Data.Director(123, "Kathryn Bigelow", "nm0000941"));
+        directors.put(124, new Data.Director(124, "Joe Wright", "m0942504"));
         directors.put(125,
-                new Director(125, "Alejandro AmenÂ bar", "nm0024622"));
+                new Data.Director(125, "Alejandro AmenÂ bar", "nm0024622"));
         directors.put(126,
-                new Director(126, "Katherine Dieckmann", "nm0225869"));
-        directors.put(127, new Director(127, "Sam Peckinpah", "nm0001603"));
-        directors.put(128, new Director(128, "YÃ•lmaz Erdo?an", "nm0258784"));
-        directors.put(129, new Director(129, "Shana Feste", "nm0275277"));
-        directors.put(130, new Director(130, "Reha Erdem", "nm0258732"));
-        directors.put(131, new Director(131, "Jonathan Kaplan", "nm0438279"));
-        directors.put(132, new Director(132, "Steven Spielberg", "nm0000229"));
-        directors.put(133, new Director(133, "Francis Ford Coppola",
+                new Data.Director(126, "Katherine Dieckmann", "nm0225869"));
+        directors.put(127, new Data.Director(127, "Sam Peckinpah", "nm0001603"));
+        directors.put(128, new Data.Director(128, "YÃ•lmaz Erdo?an", "nm0258784"));
+        directors.put(129, new Data.Director(129, "Shana Feste", "nm0275277"));
+        directors.put(130, new Data.Director(130, "Reha Erdem", "nm0258732"));
+        directors.put(131, new Data.Director(131, "Jonathan Kaplan", "nm0438279"));
+        directors.put(132, new Data.Director(132, "Steven Spielberg", "nm0000229"));
+        directors.put(133, new Data.Director(133, "Francis Ford Coppola",
                 "nm0000338"));
-        directors.put(134, new Director(134, "Troy Duffy", "nm0240627"));
-        directors.put(135, new Director(135, "Pierre Morel", "nm0603628"));
-        directors.put(136, new Director(136, "Peter Jackson", "nm0001392"));
-        directors.put(137, new Director(137, "Rebecca Miller", "nm0589182"));
-        directors.put(138, new Director(138, "Terry Gilliam", "nm0000416"));
-        directors.put(139, new Director(139, "Phil Lord", "nm0520488"));
-        directors.put(140, new Director(140, "Chris Miller", "nm0588087"));
-        directors.put(141, new Director(141, "Ron Clements", "nm0166256"));
-        directors.put(142, new Director(142, "John Musker", "nm0615780"));
-        directors.put(143, new Director(143, "Lone Scherfig", "nm0771054"));
-        directors.put(144, new Director(144, "James Cameron", "nm0000116"));
-        directors.put(145, new Director(145, "Lee Daniels", "nm0200005"));
-        directors.put(146, new Director(146, "John Lee Hancock", "nm0359387"));
-        directors.put(147, new Director(147, "Chris Weitz", "nm0919363"));
-        directors.put(148, new Director(148, "Wes Anderson", "nm0027572"));
-        directors.put(149, new Director(149, "Guy Ritchie", "nm0005363"));
-        directors.put(150, new Director(150, "Gus Van Sant", "nm0001814"));
-        directors.put(151, new Director(151, "John Hillcoat", "nm0384825"));
-        directors.put(152, new Director(152, "Petr Zelenka", "nm0954500"));
-        directors.put(153, new Director(153, "Marcus Dunstan", "nm1729303"));
-        directors.put(154, new Director(154, "Majid Majidi", "nm0006498"));
-        directors.put(155, new Director(155, "Wai-keung Lau", "nm0490487"));
-        directors.put(156, new Director(156, "Tim Blake Nelson", "nm0625789"));
-        directors.put(157, new Director(157, "Brian De Palma", "nm0000361"));
-        directors.put(158, new Director(158, "Paul McGuigan", "nm0006476"));
-        directors.put(159, new Director(159, "Gilles Mimouni", "nm0590813"));
-        directors.put(160, new Director(160, "Antoine Fuqua", "nm0298807"));
-        directors.put(161, new Director(161, "Nick Willing", "nm0932216"));
-        directors.put(162, new Director(162, "Tony Gilroy", "nm0006904"));
-        directors.put(163, new Director(163, "Daniel Barber", "nm2905562"));
-        directors.put(164, new Director(164, "Yann Samuel", "nm1367933"));
-        directors.put(165, new Director(165, "Peter Stebbings", "nm0824220"));
-        directors.put(166, new Director(166, "Martin Campbell", "nm0132709"));
-        directors.put(167, new Director(167, "Mark Waters", "nm0132709"));
-        directors.put(168, new Director(168, "Kar Wai Wong", "nm0939182"));
-        directors.put(169, new Director(169, "Jim Sheridan", "nm0006487"));
-        directors.put(170, new Director(170, "Scott Cooper", "nm0178376"));
-        directors.put(171, new Director(171, "Martin Scorsese", "nm0000217"));
-        directors.put(172, new Director(172, "Zeki Demirkubuz", "nm0218547"));
-        directors.put(173, new Director(173, "Michael Haneke", "nm0359734"));
-        directors.put(174, new Director(174, "Kamen Kalev", "nm1189816"));
-        directors.put(175, new Director(175, "David Koepp", "nm0462895"));
-        directors.put(176, new Director(176, "Cameron Crowe", "nm0001081"));
-        directors.put(177, new Director(177, "Ivan Engler", "nm1393530"));
-        directors.put(178, new Director(178, "Stephen Poliakoff", "nm0689081"));
-        directors.put(179, new Director(179, "Kari Skogland", "nm0804556"));
-        directors.put(180, new Director(180, "Michael Sucsy", "nm1302591"));
-        directors.put(181, new Director(181, "Andy Tennant", "nm0855035"));
-        directors.put(182, new Director(182, "Durul Taylan", "nm1533201"));
-        directors.put(183, new Director(183, "Fritz Lang", "nm0000485"));
-        directors.put(184, new Director(184, "Samuel Maoz", "nm1413443"));
-        directors.put(185, new Director(185, "David Yates", "nm0946734"));
-        directors.put(186, new Director(186, "Damjan Kozole", "nm0468995"));
-        directors.put(187, new Director(187, "Igor Sterk", "nm0827459"));
-        directors.put(188, new Director(188, "Wim Wenders", "nm0000694"));
-        directors.put(189, new Director(189, "Chandler Tuttle", "nm2459703"));
-        directors.put(190, new Director(190, "Zoe R. Cassavetes", "nm0144023"));
-        directors.put(191, new Director(191, "Peter Weir", "nm0001837"));
+        directors.put(134, new Data.Director(134, "Troy Duffy", "nm0240627"));
+        directors.put(135, new Data.Director(135, "Pierre Morel", "nm0603628"));
+        directors.put(136, new Data.Director(136, "Peter Jackson", "nm0001392"));
+        directors.put(137, new Data.Director(137, "Rebecca Miller", "nm0589182"));
+        directors.put(138, new Data.Director(138, "Terry Gilliam", "nm0000416"));
+        directors.put(139, new Data.Director(139, "Phil Lord", "nm0520488"));
+        directors.put(140, new Data.Director(140, "Chris Miller", "nm0588087"));
+        directors.put(141, new Data.Director(141, "Ron Clements", "nm0166256"));
+        directors.put(142, new Data.Director(142, "John Musker", "nm0615780"));
+        directors.put(143, new Data.Director(143, "Lone Scherfig", "nm0771054"));
+        directors.put(144, new Data.Director(144, "James Cameron", "nm0000116"));
+        directors.put(145, new Data.Director(145, "Lee Daniels", "nm0200005"));
+        directors.put(146, new Data.Director(146, "John Lee Hancock", "nm0359387"));
+        directors.put(147, new Data.Director(147, "Chris Weitz", "nm0919363"));
+        directors.put(148, new Data.Director(148, "Wes Anderson", "nm0027572"));
+        directors.put(149, new Data.Director(149, "Guy Ritchie", "nm0005363"));
+        directors.put(150, new Data.Director(150, "Gus Van Sant", "nm0001814"));
+        directors.put(151, new Data.Director(151, "John Hillcoat", "nm0384825"));
+        directors.put(152, new Data.Director(152, "Petr Zelenka", "nm0954500"));
+        directors.put(153, new Data.Director(153, "Marcus Dunstan", "nm1729303"));
+        directors.put(154, new Data.Director(154, "Majid Majidi", "nm0006498"));
+        directors.put(155, new Data.Director(155, "Wai-keung Lau", "nm0490487"));
+        directors.put(156, new Data.Director(156, "Tim Blake Nelson", "nm0625789"));
+        directors.put(157, new Data.Director(157, "Brian De Palma", "nm0000361"));
+        directors.put(158, new Data.Director(158, "Paul McGuigan", "nm0006476"));
+        directors.put(159, new Data.Director(159, "Gilles Mimouni", "nm0590813"));
+        directors.put(160, new Data.Director(160, "Antoine Fuqua", "nm0298807"));
+        directors.put(161, new Data.Director(161, "Nick Willing", "nm0932216"));
+        directors.put(162, new Data.Director(162, "Tony Gilroy", "nm0006904"));
+        directors.put(163, new Data.Director(163, "Daniel Barber", "nm2905562"));
+        directors.put(164, new Data.Director(164, "Yann Samuel", "nm1367933"));
+        directors.put(165, new Data.Director(165, "Peter Stebbings", "nm0824220"));
+        directors.put(166, new Data.Director(166, "Martin Campbell", "nm0132709"));
+        directors.put(167, new Data.Director(167, "Mark Waters", "nm0132709"));
+        directors.put(168, new Data.Director(168, "Kar Wai Wong", "nm0939182"));
+        directors.put(169, new Data.Director(169, "Jim Sheridan", "nm0006487"));
+        directors.put(170, new Data.Director(170, "Scott Cooper", "nm0178376"));
+        directors.put(171, new Data.Director(171, "Martin Scorsese", "nm0000217"));
+        directors.put(172, new Data.Director(172, "Zeki Demirkubuz", "nm0218547"));
+        directors.put(173, new Data.Director(173, "Michael Haneke", "nm0359734"));
+        directors.put(174, new Data.Director(174, "Kamen Kalev", "nm1189816"));
+        directors.put(175, new Data.Director(175, "David Koepp", "nm0462895"));
+        directors.put(176, new Data.Director(176, "Cameron Crowe", "nm0001081"));
+        directors.put(177, new Data.Director(177, "Ivan Engler", "nm1393530"));
+        directors.put(178, new Data.Director(178, "Stephen Poliakoff", "nm0689081"));
+        directors.put(179, new Data.Director(179, "Kari Skogland", "nm0804556"));
+        directors.put(180, new Data.Director(180, "Michael Sucsy", "nm1302591"));
+        directors.put(181, new Data.Director(181, "Andy Tennant", "nm0855035"));
+        directors.put(182, new Data.Director(182, "Durul Taylan", "nm1533201"));
+        directors.put(183, new Data.Director(183, "Fritz Lang", "nm0000485"));
+        directors.put(184, new Data.Director(184, "Samuel Maoz", "nm1413443"));
+        directors.put(185, new Data.Director(185, "David Yates", "nm0946734"));
+        directors.put(186, new Data.Director(186, "Damjan Kozole", "nm0468995"));
+        directors.put(187, new Data.Director(187, "Igor Sterk", "nm0827459"));
+        directors.put(188, new Data.Director(188, "Wim Wenders", "nm0000694"));
+        directors.put(189, new Data.Director(189, "Chandler Tuttle", "nm2459703"));
+        directors.put(190, new Data.Director(190, "Zoe R. Cassavetes", "nm0144023"));
+        directors.put(191, new Data.Director(191, "Peter Weir", "nm0001837"));
         directors
-                .put(192, new Director(192, "Bertrand Tavernier", "nm0851724"));
-        directors.put(193, new Director(193, "Cheryl Hines", "nm0385644"));
-        directors.put(194, new Director(194, "Chris Wedge", "nm0917188"));
-        directors.put(195, new Director(195, "Carlos Saldanha", "nm0757858"));
+                .put(192, new Data.Director(192, "Bertrand Tavernier", "nm0851724"));
+        directors.put(193, new Data.Director(193, "Cheryl Hines", "nm0385644"));
+        directors.put(194, new Data.Director(194, "Chris Wedge", "nm0917188"));
+        directors.put(195, new Data.Director(195, "Carlos Saldanha", "nm0757858"));
         directors
-                .put(196, new Director(196, "Giuseppe Capotondi", "nm3321297"));
-        directors.put(197, new Director(197, "Tom Ford", "nm1053530"));
-        directors.put(198, new Director(198, "Jordan Scott", "nm0779386"));
-        directors.put(199, new Director(199, "Noah Buschel", "nm1231757"));
-        directors.put(200, new Director(200, "Nancy Meyers", "nm0583600"));
-        directors.put(201, new Director(201, "Tom Vaughan", "nm0891114"));
-        directors.put(202, new Director(202, "Anand Tucker", "nm0875793"));
-        directors.put(203, new Director(203, "Sam Taylor Wood", "nm0939993"));
+                .put(196, new Data.Director(196, "Giuseppe Capotondi", "nm3321297"));
+        directors.put(197, new Data.Director(197, "Tom Ford", "nm1053530"));
+        directors.put(198, new Data.Director(198, "Jordan Scott", "nm0779386"));
+        directors.put(199, new Data.Director(199, "Noah Buschel", "nm1231757"));
+        directors.put(200, new Data.Director(200, "Nancy Meyers", "nm0583600"));
+        directors.put(201, new Data.Director(201, "Tom Vaughan", "nm0891114"));
+        directors.put(202, new Data.Director(202, "Anand Tucker", "nm0875793"));
+        directors.put(203, new Data.Director(203, "Sam Taylor Wood", "nm0939993"));
         directors
-                .put(204, new Director(204, "â„¢mer Faruk Sorak", "nm0814716"));
-        directors.put(205, new Director(205, "â„¢zcan Alper", "nm3213296"));
-        directors.put(206, new Director(206, "Garry Marshall", "nm0005190"));
+                .put(204, new Data.Director(204, "â„¢mer Faruk Sorak", "nm0814716"));
+        directors.put(205, new Data.Director(205, "â„¢zcan Alper", "nm3213296"));
+        directors.put(206, new Data.Director(206, "Garry Marshall", "nm0005190"));
         directors
-                .put(207, new Director(207, "George P. Cosmatos", "nm0181902"));
+                .put(207, new Data.Director(207, "George P. Cosmatos", "nm0181902"));
         directors.put(208,
-                new Director(208, "Giuseppe Toprnatore", "nm0868153"));
-        directors.put(209, new Director(209, "Glenn Ficarra", "nm0275629"));
-        directors.put(210, new Director(210, "John Requa", "nm0720135"));
-        directors.put(211, new Director(211, "Barry Levinson", "nm0001469"));
-        directors.put(212, new Director(212, "Koen Morties", "nm0607831"));
-        directors.put(213, new Director(213, "Wilson Yip", "nm0948159"));
-        directors.put(214, new Director(214, "Tim Burton", "nm0000318"));
-        directors.put(215, new Director(215, "Atom Egoyan", "nm0000382"));
-        directors.put(216, new Director(216, "Isabel Coixet", "nm0170043"));
-        directors.put(217, new Director(217, "Pavel Chukhraj", "nm0161056"));
-        directors.put(218, new Director(218, "Ketche", "nm3773770"));
-        directors.put(219, new Director(219, "ZÂ�lfÂ� Livaneli", "nm0515101"));
-        directors.put(220, new Director(220, "Sam Raimi", "nm0000600"));
-        directors.put(221, new Director(221, "Brian Goodman", "nm0329023"));
-        directors.put(222, new Director(222, "Christophe Barratier",
+                new Data.Director(208, "Giuseppe Toprnatore", "nm0868153"));
+        directors.put(209, new Data.Director(209, "Glenn Ficarra", "nm0275629"));
+        directors.put(210, new Data.Director(210, "John Requa", "nm0720135"));
+        directors.put(211, new Data.Director(211, "Barry Levinson", "nm0001469"));
+        directors.put(212, new Data.Director(212, "Koen Morties", "nm0607831"));
+        directors.put(213, new Data.Director(213, "Wilson Yip", "nm0948159"));
+        directors.put(214, new Data.Director(214, "Tim Burton", "nm0000318"));
+        directors.put(215, new Data.Director(215, "Atom Egoyan", "nm0000382"));
+        directors.put(216, new Data.Director(216, "Isabel Coixet", "nm0170043"));
+        directors.put(217, new Data.Director(217, "Pavel Chukhraj", "nm0161056"));
+        directors.put(218, new Data.Director(218, "Ketche", "nm3773770"));
+        directors.put(219, new Data.Director(219, "ZÂ�lfÂ� Livaneli", "nm0515101"));
+        directors.put(220, new Data.Director(220, "Sam Raimi", "nm0000600"));
+        directors.put(221, new Data.Director(221, "Brian Goodman", "nm0329023"));
+        directors.put(222, new Data.Director(222, "Christophe Barratier",
                 "nm0056725"));
-        directors.put(223, new Director(223, "Claude Berri", "nm0001945"));
-        directors.put(224, new Director(224, "Cary Fukunaga", "nm1560977"));
-        directors.put(225, new Director(225, "Jesus Garay", "nm0304879"));
-        directors.put(226, new Director(226, "?lksen Ba?arÃ•r", "nm2079185"));
-        directors.put(227, new Director(227, "Albert Hughes", "nm0400436"));
-        directors.put(228, new Director(228, "Allen Hughes", "nm0400441"));
-        directors.put(229, new Director(229, "Hirokazu Koreeda", "nm0466153"));
-        directors.put(230, new Director(230, "Ryâ€“hei Kitamura", "nm0457565"));
-        directors.put(231, new Director(231, "Shusuke Kaneko", "nm0437526"));
-        directors.put(232, new Director(232, "Gregor Jordan", "nm0429964"));
-        directors.put(241, new Director(241, "Mike Mitchell", "nm0593610"));
+        directors.put(223, new Data.Director(223, "Claude Berri", "nm0001945"));
+        directors.put(224, new Data.Director(224, "Cary Fukunaga", "nm1560977"));
+        directors.put(225, new Data.Director(225, "Jesus Garay", "nm0304879"));
+        directors.put(226, new Data.Director(226, "?lksen Ba?arÃ•r", "nm2079185"));
+        directors.put(227, new Data.Director(227, "Albert Hughes", "nm0400436"));
+        directors.put(228, new Data.Director(228, "Allen Hughes", "nm0400441"));
+        directors.put(229, new Data.Director(229, "Hirokazu Koreeda", "nm0466153"));
+        directors.put(230, new Data.Director(230, "Ryâ€“hei Kitamura", "nm0457565"));
+        directors.put(231, new Data.Director(231, "Shusuke Kaneko", "nm0437526"));
+        directors.put(232, new Data.Director(232, "Gregor Jordan", "nm0429964"));
+        directors.put(241, new Data.Director(241, "Mike Mitchell", "nm0593610"));
         movies.get(1).getDirectors().add(directors.get(1));
         movies.get(2).getDirectors().add(directors.get(2));
         movies.get(3).getDirectors().add(directors.get(3));
@@ -1489,7 +1512,6 @@ public class InMemoryMovieService {
         movies.get(245).getDirectors().add(directors.get(231));
         movies.get(246).getDirectors().add(directors.get(232));
         movies.get(255).getDirectors().add(directors.get(241));
-
     }
 
 }

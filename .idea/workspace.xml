@@ -5,20 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13c146c1-6c01-4fbc-b286-9de0e1b3d84f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Country.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Director.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Genre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InMemoryMovieService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InMemoryWorldDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Genre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/Q1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/Q2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/Q3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/Q4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/Q5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/Q6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/Q7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q11.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q12.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q13.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q14.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q15.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q16.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q18.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tasks/Q9.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Director.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Genre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InMemoryMovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/InMemoryMovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InMemoryWorldDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/InMemoryWorldDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dictionary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DictionaryTasks/dictionary.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +72,26 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/achos/dev/stream-practice/src/main/java"
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "C:/Users/achos/dev/stream-practice/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/DictionaryTasks" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/main/java/Data" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -75,10 +115,22 @@
       <option name="presentableId" value="Default" />
       <updated>1690540315258</updated>
       <workItem from="1690540317143" duration="330000" />
+      <workItem from="1690544756757" duration="14821000" />
+      <workItem from="1690727472583" duration="8937000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

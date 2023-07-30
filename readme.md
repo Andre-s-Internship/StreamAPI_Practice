@@ -1,7 +1,7 @@
 
 Stream API questions:
 
-**Movie and Country questions**
+**Data.Movie and Country questions**
 
 Q.1) Find the most populated city of each continent
 
@@ -33,7 +33,7 @@ Q.15) Group the countries by continent, and then sort the countries in continent
 
 Q.16) Find the cities with the minimum and the maximum population in countries.
 
-Q.18) Find the year where the maximum number of movie is available
+Q.18) Find the year when the maximum number of movie is available
 
 
 **Dictionary questions**

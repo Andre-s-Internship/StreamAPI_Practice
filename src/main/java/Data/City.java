@@ -1,3 +1,5 @@
+package Data;
+
 /**
  *
  * @author Binnur Kurt (binnur.kurt@gmail.com)

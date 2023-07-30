@@ -1,3 +1,5 @@
+package Data;
+
 /**
  *
  * @author Binnur Kurt (binnur.kurt@gmail.com)
@@ -64,7 +66,7 @@ public class Director {
 
 	@Override
 	public String toString() {
-		return "Director [id=" + id + ", name=" + name + ", imdb=" + imdb + "]";
+		return "Data.Director [id=" + id + ", name=" + name + ", imdb=" + imdb + "]";
 	}
 
 }

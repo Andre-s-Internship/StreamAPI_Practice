@@ -1,3 +1,5 @@
+package Data;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,7 +101,7 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "Movie [title=" + title + ", year=" + year
+		return "Data.Movie [title=" + title + ", year=" + year
 				 + "]";
 	}
 
