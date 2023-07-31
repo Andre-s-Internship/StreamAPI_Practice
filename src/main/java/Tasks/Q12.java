@@ -9,6 +9,7 @@ import java.util.*;
 public class Q12 {
     //Find the minimum, the maximum and the average population of each continent.
 
+
     public static @NotNull String countryPopulationValuesByContinents() {
         StringBuilder s = new StringBuilder();
         Map<String, Country> countries = InMemoryWorldDao.getInstance().getCountries();

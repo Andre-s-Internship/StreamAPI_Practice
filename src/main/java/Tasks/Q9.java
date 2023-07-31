@@ -18,6 +18,7 @@ public class Q9 {
         Comparator<Country> populationComparator = (country1, country2) ->
                 Double.compare((country2.getPopulation()/country2.getSurfaceArea()), (country1.getPopulation()/country1.getSurfaceArea()));
 
+
         countries.values().stream().sorted(populationComparator)
                 .filter(country -> country.getPopulation() != 0)
                 .forEach(country -> s.append(country.getName()).append(":  ")

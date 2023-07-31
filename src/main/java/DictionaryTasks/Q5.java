@@ -15,7 +15,6 @@ public class Q5 {
                 .forEach(word -> countVowelsMap.put(word, countVowelsOfString(word)));
         return countVowelsMap.values().stream().mapToInt(Integer::intValue).sum();
     }
-
     public static Integer countVowelsOfString(String s) {
         int count = 0;
         for(int i = 0; i < s.length(); i++) {

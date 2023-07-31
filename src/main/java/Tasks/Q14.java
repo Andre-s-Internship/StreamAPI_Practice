@@ -6,5 +6,6 @@ public class Q14 {
     public static @NotNull String countryPopulationValuesByContinents() {
         //Overdoing Q12 resulted not doing anything here))
         return Q12.countryPopulationValuesByContinents();
+
     }
 }

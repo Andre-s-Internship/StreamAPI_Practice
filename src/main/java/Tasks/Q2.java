@@ -22,5 +22,6 @@ public class Q2 {
                     return director.getName() + " has " + movieCount + " movie(s)";
                 })
                 .collect(Collectors.joining("\n"));
+
     }
 }

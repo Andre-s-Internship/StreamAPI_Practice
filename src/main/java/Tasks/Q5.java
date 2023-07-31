@@ -24,6 +24,7 @@ public class Q5 {
                     .ifPresent(mostPopulatedCapital -> s.append("Most populated capital of ")
                             .append(continent).append(": ").append(mostPopulatedCapital.getName()).append("\n"));
             capitals.clear();
+
         });
         return s.toString();
 

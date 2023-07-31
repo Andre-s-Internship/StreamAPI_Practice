@@ -14,4 +14,5 @@ public class Q4 {
         capitals.stream().filter(Objects::nonNull).max(Comparator.comparingInt(City::getPopulation)).ifPresent(mostPopulatedCapital -> city.append(mostPopulatedCapital.getName()));
         return city.toString();
     }
+
 }

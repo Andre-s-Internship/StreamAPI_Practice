@@ -15,5 +15,6 @@ public class Q6 {
                 .filter(word -> !word.isEmpty() && word.charAt(0) == 'a' && word.charAt(word.length()-1) == 'z')
                 .forEach(wordsStartingNtoEnd::add);
         return wordsStartingNtoEnd;
+
     }
 }

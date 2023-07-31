@@ -15,6 +15,7 @@ public class Q18 {
         Map<Integer, Movie> movies = InMemoryMovieService.getInstance().getMovies();
         Map<Integer, Long> yearCounts = new HashMap<>(); // year -> count
 
+
         movies.values().stream().sorted(Comparator.comparingInt(Movie::getYear).reversed())
                 .map(Movie::getYear)
                 .forEach(year -> {

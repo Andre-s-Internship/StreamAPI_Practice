@@ -8,6 +8,7 @@ import java.util.*;
 public class Q15 {
     //Group the countries by continent, and then sort the countries in continent by number of cities in each continent.
     public static @NotNull String groupAndSortCountriesByNumberOfCities() {
+
         StringBuilder s = new StringBuilder();
         Map<String, Country> countries = InMemoryWorldDao.getInstance().getCountries();
         Set<String> continents = InMemoryWorldDao.getInstance().getContinents();

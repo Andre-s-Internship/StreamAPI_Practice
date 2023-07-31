@@ -11,6 +11,7 @@ import java.util.Map;
 public class Q16 {
     //Find the cities with the minimum and the maximum population in countries.
     public static @NotNull String minMaxCitiesOfCountries() {
+
         StringBuilder s = new StringBuilder();
         Map<String, Country> countries = InMemoryWorldDao.getInstance().getCountries();
 

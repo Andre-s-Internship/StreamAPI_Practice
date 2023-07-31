@@ -15,5 +15,6 @@ public class Q2 {
                 .filter(word -> !word.isEmpty() && word.charAt(0) >= 'n')
                 .forEach(wordsStartingNtoEnd::add);
         return wordsStartingNtoEnd;
+
     }
 }

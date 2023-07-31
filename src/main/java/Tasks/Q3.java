@@ -21,5 +21,6 @@ public class Q3 {
                     return director.getName() + " has " + genreCount + " genres(s)";
                 })
                 .collect(Collectors.joining("\n"));
+
     }
 }

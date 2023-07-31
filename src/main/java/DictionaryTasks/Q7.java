@@ -13,5 +13,6 @@ public class Q7 {
         Files.lines(Paths.get(filePath))
                 .forEach(word -> wordLengthMap.put(word, word.length()));
         return wordLengthMap.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get().getKey();
+
     }
 }

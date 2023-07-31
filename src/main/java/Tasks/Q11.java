@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class Q11 {
     //Find the minimum, the maximum and the average population of world countries.
+
     public static @NotNull String countryPopulationValues() {
         StringBuilder s = new StringBuilder();
         Map<String, Country> countries = InMemoryWorldDao.getInstance().getCountries();
